@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+// TASK: this datasource only reads DATABASE_URL. Add a directUrl line
+// that reads DIRECT_URL, so `prisma migrate deploy` can run over a
+// non-pooled connection instead of Render's default pooled one.
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Note {
+  id        Int      @id @default(autoincrement())
+  text      String
+  createdAt DateTime @default(now())
+}
