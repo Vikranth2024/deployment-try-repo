@@ -20,8 +20,7 @@ export default function App() {
   return (
     <div style={{ fontFamily: "sans-serif", padding: "2rem" }}>
       <h1>Vercel Deploy Demo</h1>
-      <p>API URL baked into this build: {API_URL || "(none)"}</p>
-      <p>{status}</p>
+  
     </div>
   );
 }
