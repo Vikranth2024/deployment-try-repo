@@ -3,8 +3,8 @@ generator client {
 }
 
 // TASK: this datasource only reads DATABASE_URL. Add a directUrl line
-// that reads DIRECT_URL, so `prisma migrate deploy` can run over a
-// non-pooled connection instead of Render's default pooled one.
+// that reads DIRECT_URL, so `prisma migrate deploy` uses the Internal
+// direct connection even if optional Render connection pooling is enabled.
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")

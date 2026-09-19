@@ -16,8 +16,8 @@ If you deploy this starter as-is, the build succeeds, the service starts, and `G
 2. Provision a Render managed PostgreSQL instance.
 3. Add `directUrl = env("DIRECT_URL")` to the `datasource` block in `prisma/schema.prisma`.
 4. Update `render.yaml`: add `&& npx prisma migrate deploy` to `buildCommand`, and add a `DIRECT_URL` entry under `envVars`.
-5. Connect your Render Web Service to your fork, using `DATABASE_URL` set to the Internal connection string and `DIRECT_URL` set to the same database's direct (non-pooled) connection string, both configured as actual values in the Render dashboard.
-6. Deploy, confirm the migration log shows the `Note` table being created, and confirm `GET /api/notes` returns `[]` (or real data) instead of failing.
+5. Connect your Render Web Service to your fork. Set `DIRECT_URL` to the Internal direct URL. If pooling is disabled, `DATABASE_URL` can use that same Internal direct URL. If optional pooling is enabled on an eligible paid database, set `DATABASE_URL` to the Internal Pooler URL instead.
+6. Deploy, confirm the migration log shows the `Note` table being created, and confirm `GET /api/notes` returns `[]` (or saved notes) instead of failing. An empty array is a successful database query.
 
 ## Local setup
 
