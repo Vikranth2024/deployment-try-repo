@@ -1,0 +1,8 @@
+{
+  "name": "cd-pipeline-starter",
+  "version": "1.0.0",
+  "description": "Starter repository for the CD Pipeline assignment",
+  "scripts": {
+    "build": "echo 'Build step: OK'"
+  }
+}

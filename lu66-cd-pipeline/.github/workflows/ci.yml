@@ -1,0 +1,31 @@
+name: CI/CD
+
+on:
+  push:
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build --if-present
+
+  # TASK: add a deploy job here.
+  # It must:
+  #   - only run after the ci job passes (needs: [ci])
+  #   - only run on pushes to main (if: github.ref == 'refs/heads/main')
+  #   - send an HTTP POST to the Render deploy hook stored in secrets
+  #     (curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}")
