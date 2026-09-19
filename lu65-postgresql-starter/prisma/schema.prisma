@@ -6,8 +6,9 @@ generator client {
 // that reads DIRECT_URL, so `prisma migrate deploy` uses the Internal
 // direct connection even if optional Render connection pooling is enabled.
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model Note {
